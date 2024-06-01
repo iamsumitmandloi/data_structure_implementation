@@ -1,0 +1,108 @@
+void main() {
+  Stack st = Stack(-1, List.generate(3, (i) => ""));
+  st.getTop();
+  st.pop();
+  st.push(1);
+  st.getTop();
+  st.push(2);
+  st.push(3);
+  st.push(4);
+  st.getTop();
+
+  Queue q = Queue(-1, List.generate(3, (i) => ""), -1);
+  q.getFront();
+  q.deQue();
+  q.inQue(2);
+  q.getFront();
+  q.inQue(3);
+  q.inQue(4);
+  q.inQue(5);
+  q.getFront();
+  q.deQue();
+  q.getFront();
+   q.deQue();
+  q.getFront();
+     q.deQue();
+  q.getFront();
+}
+
+class Queue {
+  int front;
+  int rear;
+  List arr;
+  Queue(this.front, this.arr, this.rear);
+
+  void deQue() {
+    //check is queue empty
+    //with -1 and also with front and rear empty
+    //then if it not empty then - just increase the front (but remember that
+    //we have to calculate the front and rear with %
+    if ((front == -1 && rear == -1) || (front == rear)) {
+      front = rear = -1;
+      print('queue is Already empty');
+    } else {
+      print('element removed -> ${arr[front]}');
+      front = (front + 1) % arr.length;
+    }
+  }
+
+  void inQue(ele) {
+    //first we will check if queue is full then we will show queue is full
+    //secondly we check if the queue is fully empty then we increase front and rear both and add element
+    //other wise we will just inrease rear and add the element
+    if ((rear + 1) % arr.length == front) {
+      print('queue is overflowing for this element -> $ele');
+    } else {
+      if (front == -1 && rear == -1) {
+        front = (front + 1) % arr.length;
+        rear = (rear + 1) % arr.length;
+        arr[rear] = ele;
+      } else {
+        rear = (rear + 1) % arr.length;
+        arr[rear] = ele;
+      }
+      print('element inserted succesfully -> $ele');
+    }
+  }
+
+  void getFront() {
+    //just check if queue is empty otherwise get the front element (because we are asking for front element not top element)
+
+    if (front == -1 && rear == -1) {
+      print('no element available');
+    } else {
+      print('front element -> ' + arr[front].toString());
+    }
+  }
+}
+
+class Stack {
+  int top;
+  List arr;
+  Stack(this.top, this.arr);
+
+  void push(int ele) {
+    if (top == arr.length - 1) {
+      print('stack overflow');
+    } else {
+      top++;
+      arr[top] = ele;
+    }
+  }
+
+  void pop() {
+    if (top == -1) {
+      print('stack underflow');
+    } else {
+      top--;
+    }
+  }
+
+  void getTop() {
+    if (top == -1) {
+      print('stack is empty');
+    } else {
+      print(arr[top]);
+    }
+  }
+}
