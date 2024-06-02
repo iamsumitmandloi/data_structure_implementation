@@ -42,6 +42,7 @@ void main() {
       Node? last = lastNode(root);
       Node? secondLast = last?.prev;
       secondLast?.next = null;
+      print('last element ${last?.data} deleted succesfully');
     }
     return root;
   }
@@ -84,16 +85,21 @@ void main() {
   addElement(9, head);
   printList(head);
   head = deleteElement(head, 97);
+    head = deleteLastNode(head);
   printList(head);
   head = deleteElement(head, 9);
   printList(head);
   head = deleteElement(head, 23);
   printList(head);
-  head = deleteElement(head, 7);
+  head = deleteLastNode(head);
   printList(head);
 
   head = addElement(7, head);
   head = addElement(9, head);
+  printList(head);
+  head = deleteElement(head, 9);
+  printList(head);
+   head = deleteElement(head, 7);
   printList(head);
 }
 
