@@ -11,7 +11,6 @@ void main() {
     print('start $start  end $end');
     middle = ((end + start) / 2).floor();
     
-    //when element is at middle , start or end.
     if (arr[middle] == se) {
       index = middle;
       print('element is at index $index');
