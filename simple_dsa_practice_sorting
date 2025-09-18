@@ -1,0 +1,88 @@
+//find minimum/max in an array
+//swap 2 numbers
+//selection sort
+//bubble sort
+//insertion sort
+//merge sort,
+//Radix sort
+//find second min/max in an array (thorugh sorting) and (thorugh 2 pointer)
+//two sum
+//contains duplicate
+//valid anagram
+//valid palindrome
+
+void main() {
+  List<int> arr = [8, 2, 7, 5, 4, 11, 0, 4, -12, 1];
+  print(arr);
+  print(' ///find minimum----------------------------');
+
+  ///find minimum/max in an array
+  int min = arr[0];
+  for (int i = 1; i < arr.length; i++) {
+    if (arr[i] < min) {
+      min = arr[i];
+    }
+  }
+  print(min);
+  print('  ///swap 2 number with third var----------------------------');
+
+  ///swap 2 number with third var
+  int x = 3;
+  int y = 2;
+  int temporary;
+
+  temporary = x;
+  x = y;
+  y = temporary;
+  print('$x,$y');
+
+  print('  //without third var , dart special----------------------------');
+
+  //without third var
+  //dart special
+  x = 7;
+  y = 9;
+  (x, y) = (y, x);
+  print('$x,$y');
+  print('  //without third var , normal way ----------------------------');
+  x = 11;
+  y = 13;
+  x = x + y;
+  y = x - y;
+  x = x - y;
+  print('$x,$y');
+
+  //selection sort
+  print('selection sort----------------------------');
+  for (int i = 0; i < arr.length; i++) {
+    int min = i;
+    for (int j = i + 1; j < arr.length; j++) {
+      if (arr[j] < arr[min]) {
+        min = j;
+      }
+    }
+    int temp = arr[i];
+    arr[i] = arr[min];
+    arr[min] = temp;
+  }
+  print(arr);
+
+  //bubble sort
+  print('bubble sort ----------------------------');
+  arr = [8, 2, 7, 5, 4, 11, 0, 4, -12, 1];
+  print(arr);
+  //swap everytime , swap pas pas wala
+  for (int i = 0; i < arr.length - 1; i++) {
+    int min = i;
+    for (int j = 0; j < arr.length - i - 1; j++) {
+      if (arr[j + 1] < arr[j]) {
+        int temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
+      }
+    }
+  }
+  print(arr);
+
+  //   arr= [8, 2, 7, 5, 4, 11, 0, 4, -12, 1];
+}
