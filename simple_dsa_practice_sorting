@@ -85,4 +85,72 @@ void main() {
   print(arr);
 
   //   arr= [8, 2, 7, 5, 4, 11, 0, 4, -12, 1];
+arr = [8, 2, 7, 5, 4, 11, 0, 4, -12, 1];
+
+  /// second max number in an array without sort
+  print('\n--- second max number in an array without sort ---');
+
+  int a = 0;
+  int b = 0;
+
+  //   (a, b) = (arr[0], arr[1]);
+
+  for (int i = 0; i < arr.length - 1; i++) {
+    if (a < arr[i]) {
+      b = a;
+      a = arr[i];
+    } else {
+      if (b < arr[i]) {
+        b = arr[i];
+      }
+    }
+  }
+
+  print('$a,$b');
+
+  print(
+    '-----ya to sort krke selection ya bubble sort se second last number return krdo array ka---',
+  );
+
+  /// if contains duplicate then remove duplicate from the array , if it si unique directly return unique
+  print(
+    '\n--- if contains duplicate then remove duplicate from the array , if it si unique directly return unique ---',
+  );
+
+  //with set
+  //with map
+  //with using 2 for loop
+
+  var uniqueWithSet = arr.toSet().toList();
+  print('uniqueWithSet--$uniqueWithSet');
+
+  var uniqueWithMap = {};
+  for (int ele in arr) {
+    uniqueWithMap[ele] = ele;
+  }
+  var xc = uniqueWithMap.keys.toList();
+
+  print('uniqueWithMap---$xc');
+
+  print(arr);
+  bool isElementAlreadyAvailable(int ab) {
+    bool isThere = false;
+    for (int ele in arr) {
+      if (ab == ele) {
+        isThere = true;
+        break;
+      }
+    }
+
+    return !isThere;
+  }
+
+  var z = [];
+  for (int i = 0; i < arr.length; i++) {
+    if (isElementAlreadyAvailable()) {
+      z.add(arr[i]);
+    }
+  }
+
+  print('uniqueWithForLoop ---- $z');
 }
